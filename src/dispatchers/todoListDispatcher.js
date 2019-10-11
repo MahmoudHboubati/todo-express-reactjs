@@ -7,20 +7,15 @@ const TODO_API = "/api/todo";
 function fetchTodoList() {
 
     return dispatch => {
-        console.log('fetching');
-
         dispatch(fetchTodoListPending());
-
-        console.log('calling', TODO_SERVER + TODO_API);
-
         fetch(TODO_SERVER + TODO_API)
             .then(res => res.json())
             .then(res => {
                 if (res.error) {
                     throw (res.error);
                 }
-                dispatch(fetchTodoListSuccess(res.TodoList));
-                return res.TodoList;
+                dispatch(fetchTodoListSuccess(res.data));
+                return res.data;
             })
             .catch(error => {
                 dispatch(fetchTodoListError(error));

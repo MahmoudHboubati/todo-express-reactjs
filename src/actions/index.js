@@ -11,7 +11,7 @@ export function fetchTodoListPending() {
 export function fetchTodoListSuccess(todoList) {
     return {
         type: FETCH_TODOLIST_SUCCESS,
-        todoList: todoList
+        todos: todoList
     }
 }
 

@@ -8,17 +8,22 @@ class TodoList extends Component {
     constructor(props) {
         super(props);
         this.state = { todos: [] };
-    }    
+    }
 
     componentDidMount() {
-        console.log('mount');
         this.props.fetchTodoList();
+        console.log(this.state);
+    }
+
+    printState() {
+        console.log(this.state);
+        console.log(this.props);
     }
 
     render() {
         return (
             <div>
-                {this.state.todos.map(todo => <div>{todo.title}</div>)}
+                {this.props.todos.map(todo => <div key={todo.id}>{todo.title}</div>)}
             </div>
         )
     }

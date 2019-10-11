@@ -1,17 +1,11 @@
-// import { createStore } from 'redux';
-// import allReducers from '../reducers';
-
-// const store = createStore(allReducers);
-
-// export default store;
-
 import { applyMiddleware, createStore } from 'redux';
 import thunk from 'redux-thunk';
 
 import rootReducer from '../reducers';
+import { initialState } from '../reducers/load';
 
-const middlewares = [thunk];
+const middleware = [thunk];
 
-const store = createStore(rootReducer, applyMiddleware(...middlewares));
+const store = createStore(rootReducer, { todos: initialState }, applyMiddleware(...middleware));
 
 export default store;

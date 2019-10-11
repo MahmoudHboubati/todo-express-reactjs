@@ -9,7 +9,7 @@ MongoClient.connect("mongodb://localhost:27017/playground", { useNewUrlParser: t
 
     let collection = client.db('playground').collection('todos');
 
-    collection.count(function (err, count) {
+    collection.countDocuments(function (err, count) {
         if (err) throw err;
 
         else if (count === 0) {
