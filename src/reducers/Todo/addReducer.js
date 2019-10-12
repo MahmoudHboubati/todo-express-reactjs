@@ -1,26 +1,26 @@
-import { FETCH_TODOLIST_PENDING, FETCH_TODOLIST_SUCCESS, FETCH_TODOLIST_ERROR } from '../actions';
+import { FETCH_ADD_PENDING, FETCH_ADD_SUCCESS, FETCH_ADD_ERROR } from '../../actions/Todo/add';
 
 export const initialState = {
-    todos: [],
+    todo: { title: '', description: '', dueDate: new Date() },
     pending: false,
     error: null
 }
 
-export function todoListReducer(state = initialState, action) {
+export function addTodoReducer(state = initialState, action) {
     switch (action.type) {
-        case FETCH_TODOLIST_PENDING:
+        case FETCH_ADD_PENDING:
             return {
                 error: null,
                 pending: true,
                 todos: []
             };
-        case FETCH_TODOLIST_SUCCESS:
+        case FETCH_ADD_SUCCESS:
             return {
                 error: null,
                 pending: false,
                 todos: action.todos
             };
-        case FETCH_TODOLIST_ERROR:
+        case FETCH_ADD_ERROR:
             return {
                 todos: null,
                 pending: false,
@@ -31,6 +31,6 @@ export function todoListReducer(state = initialState, action) {
     }
 }
 
-export const getTodoList = state => state.todos.todos;
-export const getTodoListPending = state => state.todos.pending;
-export const getTodoListError = state => state.todos.error;
+export const addTodo = state => state.addTodo.todo;
+export const addTodoPending = state => state.addTodo.pending;
+export const addTodoError = state => state.addTodo.error;

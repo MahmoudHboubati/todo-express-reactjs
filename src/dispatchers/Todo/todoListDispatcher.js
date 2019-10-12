@@ -1,4 +1,4 @@
-import { fetchTodoListPending, fetchTodoListSuccess, fetchTodoListError } from '../actions';
+import { fetchTodoListPending, fetchTodoListSuccess, fetchTodoListError } from '../../actions/Todo';
 
 //todo: get this settings from configurations
 const TODO_SERVER = "http://localhost:3100";

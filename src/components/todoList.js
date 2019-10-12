@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import fetchTodoList from '../dispatchers/todoListDispatcher';
+import fetchTodoList from '../dispatchers/Todo/todoListDispatcher';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getTodoListError, getTodoList, getTodoListPending } from '../reducers/load';
+import { getTodoListError, getTodoList, getTodoListPending } from '../reducers/Todo/load';
 
 class TodoList extends Component {
     constructor(props) {
