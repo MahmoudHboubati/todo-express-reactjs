@@ -12,17 +12,17 @@ export function addTodoReducer(state = initialState, action) {
             return {
                 error: null,
                 pending: true,
-                todos: []
+                todo: action.todo
             };
         case FETCH_ADD_SUCCESS:
             return {
                 error: null,
                 pending: false,
-                todos: action.todos
+                todo: action.todo
             };
         case FETCH_ADD_ERROR:
             return {
-                todos: null,
+                todo: null,
                 pending: false,
                 error: action.error
             };

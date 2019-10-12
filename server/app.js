@@ -3,6 +3,7 @@ const app = express();
 const port = 3100;
 const readTodoRecords = require('./services/todoServices');
 const allowOrigin = require('./middleware/origin');
+var bodyParser = require("body-parser");
 
 const result = {
     data: [
@@ -13,13 +14,18 @@ const result = {
 };
 
 app.use(allowOrigin);
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.get('/api/todo', (req, res) => {
-    // readTodoRecords()
-    //     .then(result => {
-    //     })
-    //     .catch((error) => console.log('error', error));
     res.send(result);
+});
+
+app.post('/api/todo', (req, res) => {
+    const todo = req.body;
+    console.log(todo);
+    todo.id = 4;
+    res.send(todo);
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

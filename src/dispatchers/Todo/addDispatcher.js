@@ -6,12 +6,12 @@ const TODO_API = "/api/todo";
 
 function add(add) {
     return dispatch => {
-        dispatch(addPending());
+        dispatch(addPending(add));
         fetch(TODO_SERVER + TODO_API,
             {
                 method: 'POST',
                 mode: 'cors',
-                cache: 'np-cache',
+                cache: 'no-cache',
                 credentials: 'same-origin',
                 headers: { 'Content-Type': 'application/json' },
                 redirect: 'follow',
@@ -22,8 +22,8 @@ function add(add) {
                 if (res.error) {
                     throw (res.error);
                 }
-                dispatch(addSuccess(res.data));
-                return res.data;
+                dispatch(addSuccess(res));
+                return res;
             })
             .catch(error => {
                 dispatch(addError(error));
